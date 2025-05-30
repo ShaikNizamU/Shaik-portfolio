@@ -1,113 +1,61 @@
-import React, { useRef, useState } from 'react';
-import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
+import React from "react";
 
 function Contact() {
-
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
-
-  const [nameError, setNameError] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState<boolean>(false);
-  const [messageError, setMessageError] = useState<boolean>(false);
-
-  const form = useRef();
-
-  const sendEmail = (e: any) => {
-    e.preventDefault();
-
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
-
-    /* Uncomment below if you want to enable the emailJS */
-
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
-
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
-  };
+  const phone = "+918072345232";
+  const whatsappLink = `https://Wa.me/+918072345232`;
+  const linkedInLink =
+    "https://www.linkedin.com/in/shaik-nizam-5393812a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"; // Replace with your LinkedIn URL
 
   return (
-    <div id="contact">
-      <div className="items-container">
-        <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
-          <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
+    <div
+      id="contact"
+      style={{
+        maxWidth: 600,
+        margin: "2rem auto",
+        padding: "1rem",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h1>Contact Me</h1>
+      <p>
+        Got a project waiting to be realized? Let's collaborate and make it
+        happen!
+      </p>
+
+      <div style={{ marginTop: "1.5rem", fontSize: "1.2rem" }}>
+        <p>
+          📞 Phone:{" "}
+          <a
+            href={`tel:${phone}`}
+            style={{ color: "blue", textDecoration: "underline" }}
           >
-            <div className='form-flex'>
-              <TextField
-                required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
-              />
-            </div>
-            <TextField
-              required
-              id="outlined-multiline-static"
-              label="Message"
-              placeholder="Send me any inquiries or questions"
-              multiline
-              rows={10}
-              className="body-form"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
-              error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
-            />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
-            </Button>
-          </Box>
-        </div>
+            {phone}
+          </a>
+        </p>
+
+        <p>
+          💬 WhatsApp:{" "}
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "green", textDecoration: "underline" }}
+          >
+            Chat with me on WhatsApp
+          </a>
+        </p>
+
+        <p>
+          🔗 LinkedIn:{" "}
+          <a
+            href={linkedInLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#0A66C2", textDecoration: "underline" }}
+          >
+            Visit my LinkedIn Profile
+          </a>
+        </p>
       </div>
     </div>
   );
