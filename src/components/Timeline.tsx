@@ -27,7 +27,7 @@ function Timeline() {
               Currently working as a React Native developer at Knowvo where I build cross-platform mobile apps, optimize performance, integrate APIs, and collaborate with a talented team to deliver smooth user experiences.
             </p>
             <div className="tech-stack">
-              <strong>Skills:</strong> React Native · TypeScript · JavaScript · Redux · REST APIs · UI/UX
+              <strong>Skills:</strong> React Native · TypeScript · JavaScript · REST APIs · UI/UX
             </div>
           </VerticalTimelineElement>
 
